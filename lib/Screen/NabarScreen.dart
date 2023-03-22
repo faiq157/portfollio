@@ -13,14 +13,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-          child: Column(
-        children: [
-          Navbar(),
-          const SizedBox(
-            height: 50,
-          ),
-          HomeBody(),
-        ],
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Navbar(),
+            HomeBody(),
+          ],
+        ),
       )),
     );
   }
@@ -31,8 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Expanded(
+          Container(
+            width: MediaQuery.of(context).size.width * 0.5,
             child: RichText(
+              textAlign: TextAlign.center,
               text: const TextSpan(
                   text: "HI,\n ",
                   style: TextStyle(
@@ -52,14 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]),
             ),
           ),
-          Expanded(
-            child: Container(
-              height: 100,
-              width: 100,
-              child: Image.asset("images/faiqpic.png"),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white)),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.4,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "images/faiqpic.png",
+                width: 500,
+                height: 500,
+              ),
             ),
           )
         ],
@@ -83,19 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Expanded(
-            child: Container(
-              // ignore: sort_child_properties_last
-              child: const Image(
-                image: AssetImage("images/faiqpic.png"),
-                width: 90,
-                height: 90,
-                fit: BoxFit.cover,
-              ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(45), color: Colors.white),
-            ),
-          ),
+          // ignore: prefer_const_constructors
           Expanded(
             child: TextButton.icon(
                 onPressed: () {},
