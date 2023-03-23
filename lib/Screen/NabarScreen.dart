@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfollio/Screen/socialmedia.dart';
+
+import 'AboutScreen.dart';
+import 'Myskill.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -18,6 +22,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Navbar(),
             HomeBody(),
+            const AboutScreen(),
+            const MySkillScreen(),
+            const SizedBox(
+              height: 40,
+            ),
+            const SocailMediaScreen()
           ],
         ),
       )),
@@ -30,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.5,
             child: RichText(
               textAlign: TextAlign.center,
@@ -53,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]),
             ),
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
