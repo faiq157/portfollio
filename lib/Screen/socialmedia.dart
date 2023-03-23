@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocailMediaScreen extends StatelessWidget {
   const SocailMediaScreen({super.key});
@@ -7,67 +8,95 @@ class SocailMediaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 60,
-          color: Colors.purple,
-          child: const Text(
-            "Socail Media",
-            style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
-          ),
+        Footer(),
+        const SizedBox(
+          height: 50,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GoogleBtn1(
-              onPressed: () {},
-              texts: Text("Github"),
-              icon: Icons.abc,
-            )
+            InkWell(
+              onTap: () {},
+              child: const SocailIcon(
+                text: "Github",
+                icon: (FontAwesomeIcons.github),
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: const SocailIcon(
+                text: "Linktree",
+                icon: (FontAwesomeIcons.link),
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: const SocailIcon(
+                text: "Youtube",
+                icon: (FontAwesomeIcons.youtube),
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: const SocailIcon(
+                text: "Linkedin",
+                icon: (FontAwesomeIcons.linkedin),
+              ),
+            ),
           ],
-        )
+        ),
       ],
+    );
+  }
+
+  Container Footer() {
+    return Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      height: 60,
+      color: Colors.purple,
+      child: const Text(
+        "Socail Media",
+        style: TextStyle(
+            color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
 
-class GoogleBtn1 extends StatelessWidget {
-  final Function() onPressed;
-  final IconData icon;
-  final texts;
+class SocailIcon extends StatelessWidget {
+  final text;
+  final IconData? icon;
 
-  const GoogleBtn1(
-      {required this.onPressed,
-      Key? key,
-      required this.icon,
-      required this.texts})
-      : super(key: key);
+  const SocailIcon({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 54,
-        margin: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
-        ),
-        child: TextButton(
-          style: ButtonStyle(
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)))),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(texts, style: TextStyle(color: Colors.black, fontSize: 16)),
-            ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Container(
+            height: 40,
+            width: 40,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.purple,
+            ),
+            child: Icon(
+              icon,
+              size: 40,
+              color: Colors.white,
+            ),
           ),
-          onPressed: onPressed,
-        ));
+        ),
+        Text(
+          text,
+          textAlign: TextAlign.right,
+          style: TextStyle(color: Colors.white),
+        )
+      ],
+    );
   }
 }

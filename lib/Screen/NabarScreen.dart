@@ -3,6 +3,7 @@ import 'package:portfollio/Screen/socialmedia.dart';
 
 import 'AboutScreen.dart';
 import 'Myskill.dart';
+import 'footer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -27,7 +28,11 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 40,
             ),
-            const SocailMediaScreen()
+            const SocailMediaScreen(),
+            const SizedBox(
+              height: 40,
+            ),
+            const FooterScreen(),
           ],
         ),
       )),
