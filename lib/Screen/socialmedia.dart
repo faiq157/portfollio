@@ -8,7 +8,17 @@ class SocailMediaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Footer(),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 60,
+          color: Colors.purple,
+          child: const Text(
+            "Socail Media",
+            style: TextStyle(
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+        ),
         const SizedBox(
           height: 50,
         ),
@@ -48,20 +58,6 @@ class SocailMediaScreen extends StatelessWidget {
       ],
     );
   }
-
-  Container Footer() {
-    return Container(
-      alignment: Alignment.center,
-      width: double.infinity,
-      height: 60,
-      color: Colors.purple,
-      child: const Text(
-        "Socail Media",
-        style: TextStyle(
-            color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
 }
 
 class SocailIcon extends StatelessWidget {
@@ -86,7 +82,7 @@ class SocailIcon extends StatelessWidget {
             ),
             child: Icon(
               icon,
-              size: 40,
+              size: 20,
               color: Colors.white,
             ),
           ),
